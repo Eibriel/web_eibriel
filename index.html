@@ -59,11 +59,19 @@ function show_input () {
 }
 
 function jsonCallback (data) {
+    count = 0
     for (msg in data["message"]) {
-        botui.message.add({
-                content: data["message"][msg]
-            }).then(show_input);
+        m = data["message"][msg]
+        setTimeout(function(mm) {
+            botui.message.add({
+                    delay: 500,
+                    loading: true,
+                    content: mm
+                });
+        }.bind(null, m), count);
+        count += 500;
     };
+    setTimeout(show_input, count);
 }
 
 function send_message (res) {
@@ -78,7 +86,7 @@ function send_message (res) {
         }
 
     var jqxhr = $.ajax( {method: "POST",
-                            url: "http://0.0.0.0:5000/api/eibriel8s9g6a3e/web",
+                            url: "https://platform.eibriel.com/api/eibriel8s9g6a3e/web",
                             //crossDomain: true,
                             //data: JSON.stringify(arr),
                             data: arr,
