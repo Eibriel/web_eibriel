@@ -14,7 +14,7 @@
         <link rel="shortcut icon" href="favicon.png" type="image/png">
     </head>
     <body style="background-color:#18bc9c">
-        <div class="botui-app-container" id="hello-world">
+        <div class="botui-app-container" id="EibrielBot">
             <bot-ui></bot-ui>
         </div>
 
@@ -25,9 +25,13 @@
         <script src="js/jquery-3.2.1.min.js"></script>
 
         <script>
-var botui = new BotUI('hello-world');
+var botui = new BotUI('EibrielBot');
 chat_id = Math.floor((Math.random() * 100000000) + 1);
-
+chatbot = window.location.hash.substring(1);
+if (chatbot == "") {
+    chatbot = "EibrielBot";
+}
+console.log(chatbot);
 /*
 function show_language_selector() {
     botui.action.button({
@@ -87,7 +91,7 @@ function send_message (res) {
         }
 
     var jqxhr = $.ajax( {method: "POST",
-                            url: "https://platform.eibriel.com/api/eibriel8s9g6a3e/web",
+                            url: "https://platform.eibriel.com/api/"+chatbot+"/web",
                             //crossDomain: true,
                             //data: JSON.stringify(arr),
                             data: arr,
