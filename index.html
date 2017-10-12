@@ -14,6 +14,8 @@
         <link rel="shortcut icon" href="favicon.png" type="image/png">
     </head>
     <body style="background-color:#18bc9c">
+        <div id="loading-message">Cargando Experiencia Conversacional...<br>
+        Si demora puede probarla también en <a href="https://m.me/Eibriel" target="_blank">Messenger</a> o <a href="https://t.me/EibrielBot" target="_blank">Telegram</a></div>
         <div class="botui-app-container" id="EibrielBot">
             <bot-ui></bot-ui>
         </div>
@@ -32,6 +34,7 @@ if (chatbot == "") {
     chatbot = "EibrielBot";
 }
 console.log(chatbot);
+var loadingdiv = document.getElementById("loading-message");
 /*
 function show_language_selector() {
     botui.action.button({
@@ -64,6 +67,7 @@ function show_input () {
 }
 
 function jsonCallback (data) {
+    loadingdiv.style.display = "none";
     count = 0
     for (msg in data["message"]) {
         m = data["message"][msg]
