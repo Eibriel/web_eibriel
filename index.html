@@ -115,6 +115,13 @@ function send_message (res) {
 }
 
 send_message(null);
+function fix_scroll(){
+    $(".botui-container").scrollTop(1000);
+    $("#EibrielBot").css( 'height', '400px' );
+    $(".botui-container").css( 'font-size', '20px' );
+}
+
+setInterval(fix_scroll, 100);
         </script>
 
     </body>
