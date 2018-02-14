@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Eibriel - Chatbots Argentina</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="Illusion of life by software.">
+        <meta name="author" content="Eibriel">
+
+        <link rel="stylesheet" href="css/botui.min.css" />
+        <link rel="stylesheet" href="css/botui-theme-default.css" />
+
+        <link rel="canonical" href="https://eibriel.com" />
+        <link rel="shortcut icon" href="favicon.png" type="image/png">
+    </head>
+    <body style="background-color:#18bc9c">
+        <div id="loading-message">Cargando Experiencia Conversacional...<br>
+        Si demora puede probarla también en <a href="https://m.me/Eibriel" target="_blank">Messenger</a> o <a href="https://t.me/EibrielBot" target="_blank">Telegram</a></div>
+        <div class="botui-app-container" id="EibrielBot">
+            <bot-ui></bot-ui>
+        </div>
+
+        <!--<script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>-->
+        <script src="https://cdn.jsdelivr.net/vue/2.0.5/vue.min.js"></script>
+        <script src="js/botui.min.js"></script>
+
+        <script src="js/jquery-3.2.1.min.js"></script>
+
+        <script>
+var botui = new BotUI('EibrielBot');
+chat_id = Math.floor((Math.random() * 100000000) + 1);
+chatbot = window.location.hash.substring(1);
+if (chatbot == "") {
+    chatbot = "EibrielBot";
+}
+console.log(chatbot);
+var loadingdiv = document.getElementById("loading-message");
+/*
+function show_language_selector() {
+    botui.action.button({
+            action: [
+                { // show only one button
+                    text: 'English',
+                    value: 'english'
+                },
+                { // show only one button
+                    text: 'Español',
+                    value: 'espanol'
+                }
+            ]
+            }).then(function (res) { // will be called when a button is clicked.
+                console.log(res.value); // will print "one" from 'value'
+        });
+}
+
+botui.message.add({
+        content: 'Logo ![](https://eibriel.com/img/profile.png) klk'
+    }).then(show_language_selector);
+*/
+
+function show_input () {
+    botui.action.text({
+        action: {
+                placeholder: 'Ingresá tu respuesta aquí'
+            }
+        }).then(send_message);
+}
+
+function jsonCallback (data) {
+    loadingdiv.style.display = "none";
+    count = 0
+    for (msg in data["message"]) {
+        m = data["message"][msg]
+        setTimeout(function(mm) {
+            botui.message.add({
+                    delay: 500,
+                    loading: true,
+                    content: mm
+                });
+        }.bind(null, m), count);
+        count += 500;
+    };
+    setTimeout(show_input, count);
+}
+
+function send_message (res) {
+    if (res == null) {
+        question = null;
+    } else {
+        question = res.value;
+    }
+    arr = {
+            "question": question,
+            "chat_id": chat_id
+        }
+
+    var jqxhr = $.ajax( {method: "POST",
+                            url: "https://eibrielplatform.mybluemix.net/api/"+chatbot+"/web",
+                            //crossDomain: true,
+                            //data: JSON.stringify(arr),
+                            data: arr,
+                            //jsonp: false,
+                            dataType: "json"})
+                            //jsonpCallback: 'jsonCallback',
+                            //contentType: 'application/json; charset=utf-8'} )
+                            //contentType: 'multipart/form-data; charset=utf-8'} )
+            .done(jsonCallback)
+            .fail(function() {
+                console.log("Error")
+                setTimeout(function(){send_message(res)}, 1000);
+            })
+            .always(function() {
+                //alert( "complete" );
+        });
+}
+
+send_message(null);
+function fix_scroll(){
+    $(".botui-container").scrollTop(1000);
+    $("#EibrielBot").css( 'height', ($(window).height()-30)+'px' );
+    $(".botui-container").css( 'font-size', '20px' );
+}
+
+setInterval(fix_scroll, 100);
+        </script>
+
+    </body>
+</html>
