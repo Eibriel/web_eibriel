@@ -58,6 +58,103 @@
 
 <body id="page-top" class="index">
 
+<!-- Global site tag (gtag.js) - Google AdWords: 817281012 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-817281012"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-817281012');
+</script>
+
+<!-- Event snippet for Suscripción Lista de Correo conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion_mailchimp(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-817281012/ZSKXCKeQ130Q9O_ahQM',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+<!-- Event snippet for Calendly conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion_calendly(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-817281012/musECJ_81n0Q9O_ahQM',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+<!-- Event snippet for Llamadas Sitio Web conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion_phone(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-817281012/iv6gCN340n0Q9O_ahQM',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+<!-- Event snippet for Correo Sitio Web conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion_email(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-817281012/6JnsCIKAwH0Q9O_ahQM',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+<!-- Event snippet for Redes Sociales conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion_social(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-817281012/TPbWCNn9v30Q9O_ahQM',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
+
+
+
+
+
+
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -230,7 +327,7 @@
                     	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
                         <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                         <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_a343706c22f9f026c817c095c_372a80bfdc" tabindex="-1" value=""></div>
-                        <div class="clear"><input type="submit" value="Subscríbete" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                        <div class="clear"><input type="submit" value="Subscríbete" name="subscribe" id="mc-embedded-subscribe" class="button" onclick="gtag_report_conversion_mailchimp();"></div>
                         </div>
                     </form>
                     </div>
@@ -239,9 +336,9 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Correo: <a href="mailto:gabriel.caraballo@eibriel.com">Gabriel.Caraballo@eibriel.com</a></p>
-                    <p>Teléfono: <a href="tel:+5491151546397">+54 911 51546397</a></p>
-                    <p>O haga click <a href="https://calendly.com/gabriel-caraballo/15min">aquí</a> para seleccionar día y horario de reunión.</p>
+                    <p>Correo: <a href="mailto:gabriel.caraballo@eibriel.com" onclick="gtag_report_conversion_email();">Gabriel.Caraballo@eibriel.com</a></p>
+                    <p>Teléfono: <a href="tel:+5491151546397" onclick="gtag_report_conversion_phone();">+54 911 51546397</a></p>
+                    <p>O haga click <a href="https://calendly.com/gabriel-caraballo/15min" onclick="gtag_report_conversion_calendly();">aquí</a> para seleccionar día y horario de reunión.</p>
                 </div>
             </div>
             <!--
@@ -271,22 +368,22 @@
                         <h3>Seguinos</h3>
                         <ul class="list-inline">
                             <li>
-                                <a href="https://t.me/EibrielS" class="btn-social btn-outline"><i class="fa fa-fw fa-paper-plane"></i></a>
+                                <a href="https://t.me/EibrielS" onclick="gtag_report_conversion_social();" class="btn-social btn-outline"><i class="fa fa-fw fa-paper-plane"></i></a>
                             </li>
                             <li>
                                 <a href="mailto:gabriel.caraballo@eibriel.com" class="btn-social btn-outline"><i class="fa fa-fw fa-envelope"></i></a>
                             </li>
                             <li>
-                                <a href="https://www.facebook.com/eibriel" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/eibriel" onclick="gtag_report_conversion_email();" onclick="gtag_report_conversion_social();" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
                             </li>
                             <!--<li>
                                 <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
                             </li>-->
                             <li>
-                                <a href="https://www.twitter.com/eibrielbot" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                                <a href="https://www.twitter.com/eibrielbot" onclick="gtag_report_conversion_social();" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/company/11277724/" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                                <a href="https://www.linkedin.com/company/11277724/" onclick="gtag_report_conversion_social();" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
                             </li>
                             <!--<li>
                                 <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
